@@ -4,9 +4,9 @@ import { type SanityDocument } from "@sanity/client";
 
 export const client = createClient({
   projectId: import.meta.env.VITE_SANITY_PROJECT_ID,
-  dataset: "production", // or your dataset name
-  apiVersion: "2025-11-30",
-  useCdn: false, // set to false to ensure fresh data
+  dataset: import.meta.env.VITE_SANITY_DATASET,
+  apiVersion: import.meta.env.VITE_SANITY_API_VERSION,
+  useCdn: import.meta.env.VITE_SANITY_USE_CDN,
   token: import.meta.env.VITE_SANITY_API_TOKEN,
 });
 

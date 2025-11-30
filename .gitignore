@@ -26,5 +26,3 @@ dist-ssr
 # Env variables
 .env.*
 
-# Sanity
-/studio-olivecrafts/

@@ -34,7 +34,7 @@ const Header = () => {
             className=" h-16 w-16 object-contain rounded-2xl"
           />
           <span className="bg-linear-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text">
-            OliveCrafts
+            OliveCrafts Organics
           </span>
         </div>
 
