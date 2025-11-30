@@ -33,9 +33,9 @@ const Header = () => {
           <img
             src="/olivecrafts-logo.jpg"
             alt="OliveCrafts Logo"
-            className=" h-16 w-16 object-contain rounded-2xl"
+            className="h-16 w-16 object-contain rounded-2xl"
           />
-          <span className="bg-linear-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text">
+          <span className="hidden md:block bg-linear-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text">
             OliveCrafts Organics
           </span>
         </div>
@@ -77,7 +77,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white border-t animate-fade-in">
+        <div className="md:hidden rounded-full bg-white border-t animate-fade-in">
           <div className="px-6 py-4 flex flex-col gap-4">
             {navItems.map((item) => (
               <Link
