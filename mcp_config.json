@@ -1,0 +1,22 @@
+{
+  "servers": [
+    {
+      "name": "sanity",
+      "type": "http",
+      "url": "https://${import.meta.env.VITE_SANITY_PROJECT_ID}.api.sanity.io/v1",
+      "enabled": true,
+      "auth": {
+        "type": "bearer",
+        "token": "${import.meta.env.VITE_SANITY_API_TOKEN}"
+      },
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer ${import.meta.env.VITE_SANITY_API_TOKEN}"
+      },
+      "environmentVariables": [
+        "VITE_SANITY_PROJECT_ID",
+        "VITE_SANITY_API_TOKEN"
+      ]
+    }
+  ]
+}
