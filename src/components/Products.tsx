@@ -82,7 +82,8 @@ const Products = () => {
         return {
           ...product,
           image: product.image
-            ? urlFor(product.image)?.width(550).height(310)?.url()
+            ? // ? urlFor(product.image)?.width(550).height(310)?.url()
+              urlFor(product.image)?.width(810).height(1080)?.url()
             : null,
         };
       });
@@ -147,7 +148,7 @@ const Products = () => {
             }}
           >
             {products.map((product) => (
-              <SwiperSlide key={product.id}>
+              <SwiperSlide key={product._id}>
                 <div className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 h-full mx-2">
                   <div className="relative overflow-hidden aspect-square">
                     <img
@@ -161,13 +162,13 @@ const Products = () => {
                     </div>
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold mb-2">{product.name}</h3>
+                    <h3 className="text-sm font-bold mb-2">{product.name}</h3>
                     <p className="text-stone-600 text-sm mb-4 line-clamp-2">
                       {product.description}
                     </p>
-                    <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-around mb-4">
                       <span className="text-2xl font-bold text-emerald-600">
-                        {product.price}
+                        ${product.price}
                       </span>
                       <button
                         className="bg-emerald-600 text-white p-3 rounded-full hover:bg-emerald-700 transition-all hover:scale-110 active:scale-95"
@@ -176,6 +177,9 @@ const Products = () => {
                         <ShoppingBag className="w-5 h-5" />
                       </button>
                     </div>
+                    <span className="text-md font-bold text-emerald-600">
+                      {product.stock} products left
+                    </span>
                   </div>
                 </div>
               </SwiperSlide>
@@ -199,12 +203,26 @@ const Products = () => {
           </button>
 
           {/* Pagination */}
-          <div
-            ref={paginationRef}
-            className="flex justify-center mt-8 space-x-2"
-          />
+          <div className="mt-8 flex justify-center space-x-4">
+            <div ref={paginationRef} className="swiper-pagination" />
+          </div>
         </div>
       </div>
+
+      <style>{`
+        .swiper-pagination-bullet {
+          background: rgba(5, 150, 105, 0.3); /* emerald-600 with 30% opacity */
+          width: 10px;
+          height: 10px;
+          opacity: 1;
+          transition: all 0.3s ease;
+        }
+        
+        .swiper-pagination-bullet-active {
+          background: #059669; /* emerald-600 */
+          transform: scale(1.2);
+        }
+      `}</style>
     </section>
   );
 };

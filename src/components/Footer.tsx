@@ -9,7 +9,7 @@ const Footer = () => {
               alt="OliveCrafts Logo"
               className="h-16 w-16 object-contain rounded-2xl"
             />
-            OliveCrafts
+            OliveCrafts Organics
           </div>
           <p className="text-stone-400">
             Premium organic products for a healthier lifestyle

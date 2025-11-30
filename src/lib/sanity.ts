@@ -55,6 +55,7 @@ export async function getProducts() {
     name,
     slug,
     price,
+    stock,
     image
   }`;
   return client.fetch<SanityDocument[]>(query, options);

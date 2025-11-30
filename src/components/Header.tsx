@@ -22,11 +22,13 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/95 backdrop-blur-sm shadow-sm" : "bg-transparent"
+      className={`fixed top-5 left-25 right-0 w-[calc(100%-12rem)] z-50 rounded-full transition-all duration-300 ${
+        scrolled
+          ? "bg-white/95 opacity-80 backdrop-blur-2xl shadow-sm"
+          : "bg-transparent"
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <nav className="max-w-7xl px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2 text-2xl font-bold">
           <img
             src="/olivecrafts-logo.jpg"
@@ -77,27 +79,30 @@ const Header = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t animate-fade-in">
           <div className="px-6 py-4 flex flex-col gap-4">
-            <a
-              href="#products"
-              className="hover:text-emerald-600 transition-colors"
+            {navItems.map((item) => (
+              <Link
+                key={item.id}
+                activeClass="text-emerald-600 after:w-full font-medium"
+                to={item.id}
+                spy={true}
+                smooth={true}
+                offset={-80}
+                duration={500}
+                className="cursor-pointer hover:text-emerald-600 transition-colors relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:bg-emerald-600 after:transition-all after:duration-300 after:w-0 hover:after:w-full"
+              >
+                {item.label}
+              </Link>
+            ))}
+            <Link
+              to="products"
+              spy={true}
+              smooth={true}
+              offset={-80}
+              duration={500}
+              className="bg-emerald-600 text-white px-6 py-2 rounded-full hover:bg-emerald-700 transition-all hover:scale-105 active:scale-95 cursor-pointer"
             >
-              Products
-            </a>
-            <a
-              href="#about"
-              className="hover:text-emerald-600 transition-colors"
-            >
-              About
-            </a>
-            <a
-              href="#contact"
-              className="hover:text-emerald-600 transition-colors"
-            >
-              Contact
-            </a>
-            <button className="bg-emerald-600 text-white px-6 py-2 rounded-full hover:bg-emerald-700 transition-all">
               Shop Now
-            </button>
+            </Link>
           </div>
         </div>
       )}
