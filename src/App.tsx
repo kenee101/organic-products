@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 // import TestSanity from "./pages/TestSanity";
 import { Element } from "react-scroll";
 import { motion } from "motion/react";
